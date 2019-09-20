@@ -210,3 +210,27 @@ lower(person_address) like '%wörth %' --and person_address like 'CA'
 --or person_name like '%Massachusetts%'
 )
 group by person_name,person_address
+
+
+
+--seul
+
+
+select appln_filing_year,count(distinct appln_id)
+from year14_17_address_name
+where 
+(
+(
+lower(person_address) like '%seoul%' 
+--or lower(person_address) like '%seoul%'
+)
+)
+group by appln_filing_year
+--
+select person_name,person_address
+from year14_17_address_name
+where 
+(
+(lower(person_address) like '%Seul%' or lower(person_address) like '%Seoul%')
+)
+group by person_name,person_address
