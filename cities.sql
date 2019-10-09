@@ -4,27 +4,200 @@ from year14_17_address_name
 where 
 (
 lower(person_name) like '%los angeles%' 
---	or lower(person_name) like '%orange%' 
---	--or lower(person_name) like '%orange, ca%' 
---	or lower(person_name) like '%riverside%' 
---	--or lower(person_name) like '%riverside, ca%' 
---	or lower(person_name) like '%san bernardino%' 
+	or lower(person_name) like '%orange%' 
+	--or lower(person_name) like '%orange, ca%' 
+	or lower(person_name) like '%riverside%' 
+	--or lower(person_name) like '%riverside, ca%' 
+	or lower(person_name) like '%san bernardino%' 
 	or lower(person_address) like '%los angeles%' 
---	or lower(person_address) like '%orange%' 
---	--or lower(person_address) like '%orange, ca%' 
---	or lower(person_address) like '%riverside%' 
---	--or lower(person_address) like '%riverside, ca%' 
---	or lower(person_address) like '%san bernardino%' 
---	or person_address like '%LA%'
- or person_address like '%L.A.%')
---) 
---and 
---(person_address like '%CA%' 
---	or lower(person_address) like '%california%')
+	or lower(person_address) like '%orange%' 
+	--or lower(person_address) like '%orange, ca%' 
+	or lower(person_address) like '%riverside%' 
+	--or lower(person_address) like '%riverside, ca%' 
+	or lower(person_address) like '%san bernardino%' 
+	or person_address like '%LA%'
+ or person_address like '%L.A.%'
+) 
+and 
+(person_address like '%,CA%' 
+	or lower(person_address) like '%california%'
+	or person_address like '%, CA%'
+	or person_address like '% CA %')
 --and (person_ctry_code = 'US' or person_ctry_code = '')
 group by appln_filing_year
 --
---Boston
+--Minneapolis
+--
+select appln_filing_year,count(distinct appln_id)
+from year14_17_address_name
+where 
+(
+lower(person_name) like '%minneapolis%' 
+	or lower(person_name) like '%dakota%' 
+	--or lower(person_name) like '%orange, ca%' 
+	or lower(person_name) like '%hennepin%' 
+	--or lower(person_name) like '%riverside, ca%' 
+	or lower(person_name) like '%ramsey%' 
+	or lower(person_address) like '%minneapolis%' 
+	or lower(person_address) like '%dakota%' 
+	--or lower(person_address) like '%orange, ca%' 
+	or lower(person_address) like '%hennepin%' 
+	--or lower(person_address) like '%riverside, ca%' 
+	or lower(person_address) like '%ramsey%' 
+) 
+and 
+(person_address like '%,MN%' 
+	or lower(person_address) like '%minnesota%'
+	or person_address like '%, MN%'
+	or person_address like '% MN %'
+	--or lower(person_name) like '%,MN%')
+--and (person_ctry_code = 'US' or person_ctry_code = '')
+group by appln_filing_year
+--
+--San Diego
+--
+select appln_filing_year,count(distinct appln_id)
+from year14_17_address_name
+where 
+(
+lower(person_name) like '%san diego%' 
+--	or lower(person_name) like '%dakota%' 
+--	--or lower(person_name) like '%orange, ca%' 
+--	or lower(person_name) like '%hennepin%' 
+--	--or lower(person_name) like '%riverside, ca%' 
+--	or lower(person_name) like '%ramsey%' 
+	or lower(person_address) like '%san diego%' 
+--	or lower(person_address) like '%dakota%' 
+--	--or lower(person_address) like '%orange, ca%' 
+--	or lower(person_address) like '%hennepin%' 
+--	--or lower(person_address) like '%riverside, ca%' 
+--	or lower(person_address) like '%ramsey%' 
+) 
+and 
+(person_address like '%,CA%' 
+	or lower(person_address) like '%california%'
+	or person_address like '%, CA%'
+	or person_address like '% CA %')
+--	--or lower(person_name) like '%,MN%')
+-- --and (person_ctry_code = 'US' or person_ctry_code = '')
+group by appln_filing_year
+--
+--Seattle
+--
+select appln_filing_year,count(distinct appln_id)
+from year14_17_address_name
+where 
+(
+lower(person_name) like '%seattle%' 
+--	or lower(person_name) like '%dakota%' 
+--	--or lower(person_name) like '%orange, ca%' 
+--	or lower(person_name) like '%hennepin%' 
+--	--or lower(person_name) like '%riverside, ca%' 
+--	or lower(person_name) like '%ramsey%' 
+	or lower(person_address) like '%seattle%' 
+--	or lower(person_address) like '%dakota%' 
+--	--or lower(person_address) like '%orange, ca%' 
+--	or lower(person_address) like '%hennepin%' 
+--	--or lower(person_address) like '%riverside, ca%' 
+--	or lower(person_address) like '%ramsey%' 
+) 
+and 
+(person_address like '%,WA%' 
+	or lower(person_address) like '%washington %'
+	or person_address like '%, WA%'
+	or person_address like '% WA %')
+--	--or lower(person_name) like '%,MN%')
+-- --and (person_ctry_code = 'US' or person_ctry_code = '')
+group by appln_filing_year
+--
+--philadelphia
+--
+select appln_filing_year,count(distinct appln_id)
+from year14_17_address_name
+where 
+(
+lower(person_name) like '%philadelphia%' 
+--	or lower(person_name) like '%dakota%' 
+--	--or lower(person_name) like '%orange, ca%' 
+--	or lower(person_name) like '%hennepin%' 
+--	--or lower(person_name) like '%riverside, ca%' 
+--	or lower(person_name) like '%ramsey%' 
+	or lower(person_address) like '%philadelphia%' 
+--	or lower(person_address) like '%dakota%' 
+--	--or lower(person_address) like '%orange, ca%' 
+--	or lower(person_address) like '%hennepin%' 
+--	--or lower(person_address) like '%riverside, ca%' 
+--	or lower(person_address) like '%ramsey%' 
+) 
+and 
+(person_address like '%,PA%' 
+	or lower(person_address) like '%pennsylvania%'
+	or person_address like '%, PA%'
+	or person_address like '% PA %')
+--	--or lower(person_name) like '%,MN%')
+-- --and (person_ctry_code = 'US' or person_ctry_code = '')
+group by appln_filing_year
+--
+--Chicago
+--
+select appln_filing_year,count(distinct appln_id)
+from year14_17_address_name
+where 
+(
+lower(person_name) like '%chicago%' 
+--	or lower(person_name) like '%dakota%' 
+--	--or lower(person_name) like '%orange, ca%' 
+--	or lower(person_name) like '%hennepin%' 
+--	--or lower(person_name) like '%riverside, ca%' 
+--	or lower(person_name) like '%ramsey%' 
+	or lower(person_address) like '%chicago%' 
+--	or lower(person_address) like '%dakota%' 
+--	--or lower(person_address) like '%orange, ca%' 
+--	or lower(person_address) like '%hennepin%' 
+--	--or lower(person_address) like '%riverside, ca%' 
+--	or lower(person_address) like '%ramsey%' 
+) 
+and 
+(person_address like '%,IL%' 
+	or lower(person_address) like '%illinois%'
+	or person_address like '%, IL%'
+	or person_address like '% IL %')
+--	--or lower(person_name) like '%,MN%')
+-- --and (person_ctry_code = 'US' or person_ctry_code = '')
+group by appln_filing_year
+--
+--Boston-Cambridge
+--
+--
+select appln_filing_year,count(distinct appln_id)
+from year14_17_address_name
+where 
+(
+lower(person_name) like '%boston%' 
+	or lower(person_name) like '%cambridge%' 
+	or lower(person_name) like '%essex%' 
+	or lower(person_name) like '%middlesex%' 
+--	--or lower(person_name) like '%riverside, ca%' 
+	or lower(person_name) like '%norfolk%' 
+	or lower(person_name) like '%suffolk%'
+	or lower(person_address) like '%boston%' 
+	or lower(person_address) like '%cambridge%' 
+--	--or lower(person_address) like '%orange, ca%' 
+	or lower(person_address) like '%essex%' 
+	or lower(person_address) like '%middlesex%' 
+	or lower(person_address) like '%norfolk%'
+	or lower(person_address) like '%suffolk%' 
+) 
+and 
+(person_address like '%,MA%' 
+	or lower(person_address) like '%massachusetts%'
+	or person_address like '%, MA%'
+	or person_address like '% MA %')
+--	--or lower(person_name) like '%,MN%')
+-- --and (person_ctry_code = 'US' or person_ctry_code = '')
+group by appln_filing_year
+--
+--techn_fields
 select *, coalesce("2014",0) + coalesce("2015",0) + coalesce("2016",0) as sum_14_16
 from (
 select 
