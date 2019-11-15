@@ -1,3 +1,10 @@
+select appln_nr_epodoc
+from tls201_appln
+where appln_nr_epodoc = 'EP16191869'
+
+select * from year14_17_address_name
+where person_name='OOO ''PARITET'''
+
 --assignees
 select distinct person_name--count(distinct person_name)
 from year14_17_address_name join tls201_appln on year14_17_address_name.appln_id=tls201_appln.appln_id
@@ -16,7 +23,8 @@ where
 
 --appln_id
 --online: ctry_code = 'RU' auth = 'RU' addr like '%moscow%' 1188	
---ctry_code = 'RU' and auth <> 'RU' in online: 19445, offline: 6836
+--ctry_code = 'RU' and auth <> 'RU' (2010-2017) in online: 19445, offline: 6836
+--online has address 11247 (10-18)
 
 	
 --appln_id
@@ -424,7 +432,7 @@ or lower(person_address) like '%dreieich%'
 or lower(person_address) like '%neu-isenburg%'
 or lower(person_address) like '%obertshausen%'
 or lower(person_address) like '%rodgau%'
-or lower(person_address) like '%rР вЂњР’В¶dermark%'
+or lower(person_address) like '%rР В РІР‚СљР вЂ™Р’В¶dermark%'
 or lower(person_address) like '%seligenstadt%'
 or lower(person_address) like '%hanau%'
 or lower(person_address) like '%maintal%'
@@ -442,7 +450,7 @@ or lower(person_address) like '%eschborn%'
 or lower(person_address) like '%griesheim%'
 or lower(person_address) like '%weiterstadt%'
 or lower(person_address) like '%pfungstadt%'
-or lower(person_address) like '%rР вЂњРЎпїЅsselsheim%'
+or lower(person_address) like '%rР В РІР‚СљР РЋРїС—Р…sselsheim%'
 or lower(person_address) like '%taunusstein%'
 or lower(person_address) like '%idstein%'
 or lower(person_address) like '%geisenheim%'
@@ -453,7 +461,7 @@ or lower(person_address) like '%alzenau%'
 or lower(person_address) like '%erlenbach%'
 or lower(person_address) like '%klingenberg%'
 or lower(person_address) like '%obernburg%'
-or lower(person_address) like '%wР вЂњР’В¶rth %'
+or lower(person_address) like '%wР В РІР‚СљР вЂ™Р’В¶rth %'
 or lower(person_name) like '%frankfurt %'
 or lower(person_name) like '%darmstadt%'
 or lower(person_name) like '%mainz%'
@@ -464,7 +472,7 @@ or lower(person_name) like '%wiesbaden%'
 )
 group by appln_filing_year
 --
---Р В РЎС™Р В РЎвЂўР РЋР С“Р В РЎвЂќР В Р вЂ Р В Р’В°
+--Р В Р’В Р РЋРЎв„ўР В Р’В Р РЋРІР‚СћР В Р Р‹Р В РЎвЂњР В Р’В Р РЋРІР‚СњР В Р’В Р В РІР‚В Р В Р’В Р вЂ™Р’В°
 select appln_filing_year,count(distinct appln_id)
 from year14_17_address_name
 where 
@@ -481,7 +489,7 @@ select person_name,person_address
 from year14_17_address_name
 where 
 (
-lower(person_address) like '%wР вЂњР’В¶rth %' --and person_address like 'CA'
+lower(person_address) like '%wР В РІР‚СљР вЂ™Р’В¶rth %' --and person_address like 'CA'
 --lower(person_address) like '%frankfurt a. m.%'
 --lower(person_name) like '%frankfurt %'
 --or person_address like '%oakland,california%'
@@ -634,8 +642,8 @@ where
 (
 --lower(person_address) like '%seoul%' or lower(person_address) like '%yongin-si%' or lower(person_address) like '%suwon-si%' or lower(person_address) like '%seongnam-si%' or lower(person_address) like '%goyang-si%' or lower(person_address) like '%anyang-si%' or lower(person_address) like '%ansan-si%' or lower(person_address) like '%yongsan-gu%' or lower(person_address) like '%yeonsu-gu%' or lower(person_address) like '%yeongdeungpo-gu%' or lower(person_address) like '%yangpyeong-gun%' or lower(person_address) like '%yangju-si%' or lower(person_address) like '%yangcheon-gu%' or lower(person_address) like '%uiwang-si%' or lower(person_address) like '%uijeongbu-si%' or lower(person_address) like '%songpa-gu%' or lower(person_address) like '%siheung-si%' or lower(person_address) like '%seongdong-gu%' or lower(person_address) like '%seongbuk-gu%' or lower(person_address) like '%seo-gu%' or lower(person_address) like '%seodaemun-gu%' or lower(person_address) like '%seocho-gu%' or lower(person_address) like '%paju-si%' or lower(person_address) like '%osan-si%' or lower(person_address) like '%nowon-gu%' or lower(person_address) like '%namyangju-si%' or lower(person_address) like '%nam-gu%' or lower(person_address) like '%namdong-gu%' or lower(person_address) like '%mapo-gu%' or lower(person_address) like '%jungnang-gu%' or lower(person_address) like '%jung-gu%' or lower(person_address) like '%jongno-gu%' or lower(person_address) like '%hwaseong-si%' or lower(person_address) like '%hanam-si%' or lower(person_address) like '%gyeyang-gu%' or lower(person_address) like '%gwangmyeong-si%' or lower(person_address) like '%gwangju-si%' or lower(person_address) like '%gwangjin-gu%' or lower(person_address) like '%gwanak-gu%' or lower(person_address) like '%gwacheon-si%' or lower(person_address) like '%guro-gu%' or lower(person_address) like '%guri-si%' or lower(person_address) like '%gunpo-si%' or lower(person_address) like '%gimpo-si%' or lower(person_address) like '%geumcheon-gu%' or lower(person_address) like '%gangseo-gu%' or lower(person_address) like '%gangnam-gu%' or lower(person_address) like '%gangdong-gu%' or lower(person_address) like '%gangbuk-gu%' or lower(person_address) like '%eunpyeong-gu%' or lower(person_address) like '%dongjak-gu%' or lower(person_address) like '%dong-gu%' or lower(person_address) like '%dongdaemun-gu%' or lower(person_address) like '%dobong-gu%' or lower(person_address) like '%bupyeong-gu%' or lower(person_address) like '%bucheon-si%' or lower(person_address) like '%suji-gu%' or lower(person_address) like '%giheung-gu%' or lower(person_address) like '%cheoin-gu%' or lower(person_address) like '%yeongtong-gu%' or lower(person_address) like '%paldal-gu%' or lower(person_address) like '%jangan-gu%' or lower(person_address) like '%gwonseon-gu%' or lower(person_address) like '%sujeong-gu%' or lower(person_address) like '%jungwon-gu%' or lower(person_address) like '%bundang-gu%' or lower(person_address) like '%ilsanseo-gu%' or lower(person_address) like '%ilsandong-gu%' or lower(person_address) like '%deogyang-gu%' or lower(person_address) like '%manan-gu%' or lower(person_address) like '%dongan-gu%' or lower(person_address) like '%sangnok-gu%' or  lower(person_address) like '%danwon-gu%'
 --lower(person_address) like '%leichlingen%' and person_address like '%NRW%'
-lower(person_address) like '%kР“В¶ln%' or lower(person_address) like '%koln%' or lower(person_address) like '%cologne%' or lower(person_address) like '%wesseling%' or lower(person_address) like '%wermelskirchen%' or lower(person_address) like '%roesrath%' or lower(person_address) like '%pulheim%' or lower(person_address) like '%overath%' or lower(person_address) like '%odenthal%' or lower(person_address) like '%leverkusen%' or lower(person_address) like '%leichlingen (rhld.)%' or lower(person_address) like '%kuerten%' or lower(person_address) like '%koeln%' or lower(person_address) like '%kerpen%' or lower(person_address) like '%huerth%' or lower(person_address) like '%frechen%' or lower(person_address) like '%erftstadt%' or lower(person_address) like '%elsdorf%' or lower(person_address) like '%burscheid%' or lower(person_address) like '%bruehl%' or lower(person_address) like '%gladbach%' or lower(person_address) like '%bergisch%' or lower(person_address) like '%bergheim%' or lower(person_address) like  'bedburg%'
-or lower(person_name) like '%kР“В¶ln%' or lower(person_name) like '%koln%' or lower(person_name) like '%cologne%'
+lower(person_address) like '%kР вЂњР’В¶ln%' or lower(person_address) like '%koln%' or lower(person_address) like '%cologne%' or lower(person_address) like '%wesseling%' or lower(person_address) like '%wermelskirchen%' or lower(person_address) like '%roesrath%' or lower(person_address) like '%pulheim%' or lower(person_address) like '%overath%' or lower(person_address) like '%odenthal%' or lower(person_address) like '%leverkusen%' or lower(person_address) like '%leichlingen (rhld.)%' or lower(person_address) like '%kuerten%' or lower(person_address) like '%koeln%' or lower(person_address) like '%kerpen%' or lower(person_address) like '%huerth%' or lower(person_address) like '%frechen%' or lower(person_address) like '%erftstadt%' or lower(person_address) like '%elsdorf%' or lower(person_address) like '%burscheid%' or lower(person_address) like '%bruehl%' or lower(person_address) like '%gladbach%' or lower(person_address) like '%bergisch%' or lower(person_address) like '%bergheim%' or lower(person_address) like  'bedburg%'
+or lower(person_name) like '%kР вЂњР’В¶ln%' or lower(person_name) like '%koln%' or lower(person_name) like '%cologne%'
 or lower(person_name) like '%wesseling%' or lower(person_name) like '%wermelskirchen%' or lower(person_name) like '%roesrath%' or lower(person_name) like '%pulheim%' or lower(person_name) like '%overath%' or lower(person_name) like '%odenthal%' or lower(person_name) like '%leverkusen%' or lower(person_name) like '%leichlingen (rhld.)%' or lower(person_name) like '%kuerten%' or lower(person_name) like '%koeln%' or lower(person_name) like '%kerpen%' or lower(person_name) like '%huerth%' or lower(person_name) like '%frechen%' or lower(person_name) like '%erftstadt%' or lower(person_name) like '%elsdorf%' or lower(person_name) like '%burscheid%' or lower(person_name) like '%bruehl%' or lower(person_name) like '%gladbach%' or lower(person_name) like '%bergisch%' or lower(person_name) like '%bergheim%' or lower(person_name) like 'bedburg%' 
 )
 --and (person_ctry_code = 'AU' or person_ctry_code = '')
@@ -646,7 +654,7 @@ order by appln_filing_year desc
 ---
 ---
 ---
----Р С’Р С�РЎРѓРЎвЂљР ВµРЎР‚Р Т‘Р В°Р С�-Р В Р С•РЎвЂљРЎвЂљР ВµРЎР‚Р Т‘Р В°Р С�
+---Р В РЎвЂ™Р В РЎпїЅР РЋР С“Р РЋРІР‚С™Р В Р’ВµР РЋР вЂљР В РўвЂ�Р В Р’В°Р В РЎпїЅ-Р В Р’В Р В РЎвЂўР РЋРІР‚С™Р РЋРІР‚С™Р В Р’ВµР РЋР вЂљР В РўвЂ�Р В Р’В°Р В РЎпїЅ
 --515
 --1668
 --1953
@@ -678,9 +686,26 @@ order by appln_filing_year desc
 ---
 ---
 
+select appln_kind, count(*)
+from tls201_appln
+group by appln_kind
 
-
-
+--MOSKVA
+----rus 2016
+SELECT  distinct tls201_appln.appln_id,
+				tls201_appln.appln_filing_year,
+                tls201_appln.appln_auth, 
+                tls230_appln_techn_field.techn_field_nr,
+                tls206_person.person_id, tls206_person.person_ctry_code, tls206_person.person_name, tls206_person.person_address
+FROM tls201_appln 
+			INNER JOIN tls207_pers_appln on tls201_appln.appln_id = tls207_pers_appln.appln_id
+			INNER JOIN tls206_person on tls206_person.person_id = tls207_pers_appln.person_id
+            INNER JOIN tls230_appln_techn_field on tls230_appln_techn_field.appln_id = tls201_appln.appln_id
+            INNER JOIN tls901_techn_field_ipc on tls901_techn_field_ipc.techn_field_nr = tls230_appln_techn_field.techn_field_nr
+WHERE appln_filing_year = 2016 AND appln_auth = 'RU' --BETWEEN 2010 AND 2018 AND appln_auth = 'RU'
+				AND tls207_pers_appln.applt_seq_nr > 0
+                AND tls206_person.person_ctry_code = 'RU'
+--
 
 
 --SELECT 
